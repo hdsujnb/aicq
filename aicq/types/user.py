@@ -4,7 +4,7 @@ from .base import ICQObject, Field
 
 class User(ICQObject):
 
-    id: int = Field(alias="userId")
+    id: typing.Optional[int] = Field(alias="userId")
     first_name: typing.Optional[str] = Field(alias="firstName")
     last_name: typing.Optional[str] = Field(alias="lastName")
     nick: typing.Optional[str]

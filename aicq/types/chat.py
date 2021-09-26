@@ -4,7 +4,7 @@ import typing
 from enum import Enum
 
 from .base import ICQObject, Field
-from .user import User
+from .user import User as UserObject
 from .response import Response
 
 
@@ -137,7 +137,7 @@ class Chat(BaseChat):
             id=id
         )
 
-class PrivateChat(BaseChat, User):
+class PrivateChat(BaseChat, UserObject):
     
     is_bot: typing.Optional[bool] = Field(alias="isBot")
     language: typing.Optional[str]
