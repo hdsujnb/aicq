@@ -1,8 +1,7 @@
 import logging
 
-from aicq import Bot, Dispatcher
+from aicq import Bot, Dispatcher, types
 from aicq.dispatcher import Command, Text
-from aicq import types
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot("TOKEN")

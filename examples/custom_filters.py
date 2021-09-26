@@ -1,6 +1,5 @@
-from aicq import Bot, Dispatcher
+from aicq import Bot, Dispatcher, types
 from aicq.dispatcher import Filter
-from aicq import types
 
 bot = Bot("TOKEN")
 dp = Dispatcher(bot)

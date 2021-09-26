@@ -5,7 +5,7 @@ from aicq.dispatcher import Command
 from aicq.contrib.i18n import I18nMiddleware
 
 logging.basicConfig(level=logging.INFO)
-bot = Bot("001.2635077318.3410773802:761455652")
+bot = Bot("TOKEN")
 dp = Dispatcher(bot)
 
 i18n = I18nMiddleware("messages", default="en")
