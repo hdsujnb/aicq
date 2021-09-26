@@ -4,6 +4,7 @@ import typing
 import logging
 
 from ..types.event import Event, Events, EventType
+from .. import types
 from ..bot.bot import Bot
 from .handler import Handler
 from .filters.filters import Filter
@@ -44,20 +45,26 @@ class Dispatcher(ContextInstanceMixin):
 
     async def process_event(self, event: Event):
         if event.type == EventType.NEW_MESSAGE:
+            types.User.set_current(event.payload.from_user)
             return await self.message_handlers.notify(event.payload)
         elif event.type == EventType.EDITED_MESSAGE:
+            types.User.set_current(event.payload.from_user)
             return await self.edited_message_handlers.notify(event.payload)
         elif event.type == EventType.DELETED_MESSAGE:
             return await self.deleted_message_handlers.notify(event.payload)
         elif event.type == EventType.PINNED_MESSAGE:
+            types.User.set_current(event.payload.from_user)
             return await self.pinned_message_handlers.notify(event.payload)
         elif event.type == EventType.UNPINNED_MESSAGE:
             return await self.unpinned_message_handlers.notify(event.payload)
         elif event.type == EventType.NEW_CHAT_MEMBERS:
+            types.User.set_current(event.payload.added_by)
             return await self.new_chat_members_handlers.notify(event.payload)
         elif event.type == EventType.LEFT_CHAT_MEMBERS:
+            types.User.set_current(event.payload.removed_by)
             return await self.left_chat_members_handlers.notify(event.payload)
         elif event.type == EventType.CALLBACK_QUERY:
+            types.User.set_current(event.payload.from_user)
             return await self.callback_query_handlers.notify(event.payload)
 
     async def process_events(self, events: Events):

@@ -1,8 +1,9 @@
 import typing
 
 from .base import ICQObject, Field
+from ..utils.mixins import ContextInstanceMixin
 
-class User(ICQObject):
+class User(ICQObject, ContextInstanceMixin):
 
     id: typing.Optional[int] = Field(alias="userId")
     first_name: typing.Optional[str] = Field(alias="firstName")
