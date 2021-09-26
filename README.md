@@ -3,7 +3,7 @@ Lightweight modern asynchronous framework for [**ICQ BOT API**](https://icq.com/
 
 ## Installation
 ```shell
-pip install -U https://github.com/hdsujnb/aicq/archive/master.zip
+pip install aicq
 ```
 
 ## Examples
