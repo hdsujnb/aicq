@@ -9,8 +9,7 @@ pip install aicq
 ## Examples
 ### Echo bot
 ```python
-from aicq import Bot, Dispatcher
-from aicq import types
+from aicq import Bot, Dispatcher, types
 
 bot = Bot("TOKEN")
 dp = Dispatcher(bot)
