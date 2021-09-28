@@ -1,3 +1,4 @@
+import logging
 import asyncio
 import re
 from http import HTTPStatus
@@ -51,6 +52,8 @@ def pre_check_result(response: aiohttp.ClientResponse):
 def check_result(response: Response):
     if response.ok is False:
         if response.description:
+            if "Server error" in response.description:
+                logging.error("Server error. I am missing this error...")
             raise ICQAPIError(response.description)
         else:
             raise ICQAPIError("Unknown error")
